@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar HQs</title>
+    <link rel="stylesheet" href="css/gerenciar.css"> 
+</head>
+<body>
+ 
+    <div class="container1">
+        <div class="card1">
+            <h1>
+                <a href="/inicio" class="home-link">Legado de Heróis</a>
+            </h1>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="card2">
+            <h2 class="title">Gerenciar HQs</h2>
+        </div>
+    </div>
+
+    <!-- Formulário para adicionar HQ -->
+    <form id="form-hq" enctype="multipart/form-data" class="form-hq">
+        <input type="text" name="nome" placeholder="Nome da HQ" required>
+        <input type="text" name="descricao" placeholder="Descrição da HQ" required>
+        <input type="file" name="pdfs" accept=".pdf" multiple required>
+        <input type="file" name="imagem" accept="image/*" required>
+        <button type="submit">Adicionar HQ</button>
+    </form>
+
+    <!-- Lista de HQs existentes com botões para remover -->
+    <div id="hq-list" class="container-hqs">
+    
+    </div>
+
+    <!-- Script para listar e remover HQs -->
+    <script>
+        async function listarHqs() {
+            try {
+                const response = await fetch('/listar-hqs');
+                if (!response.ok) throw new Error('Erro ao listar HQs');
+                const hqs = await response.json();
+                const hqList = document.getElementById('hq-list');
+                hqList.innerHTML = ''; // Limpa a lista atual de HQs
+
+                // Percorre todas as HQs e cria os elementos para exibi-las com o estilo correto
+                hqs.forEach(hq => {
+                    const hqItem = document.createElement('div');
+                    hqItem.classList.add('hq-item'); // Aplica a classe de estilo
+
+                    hqItem.innerHTML = `
+                        <p>${hq.nome}</p>
+                        <button onclick="removerHq(${hq.id})">Remover</button>
+                    `;
+
+                    hqList.appendChild(hqItem);
+                });
+            } catch (error) {
+                console.error('Erro ao listar HQs:', error);
+            }
+        }
+
+        async function removerHq(id) {
+            try {
+                const response = await fetch(`/remover-hq/${id}`, { method: 'DELETE' });
+                if (response.ok) {
+                    alert('HQ removida com sucesso');
+                    location.reload();
+                } else {
+                    alert('Erro ao remover HQ');
+                }
+            } catch (error) {
+                console.error('Erro ao remover HQ:', error);
+            }
+        }
+
+        // Carrega a lista de HQs ao iniciar a página
+        listarHqs();
+    </script>
+
+    <!-- Inclui o script gerenciar.js com defer para garantir que o DOM esteja carregado -->
+    <script src="/gerenciar.js" defer></script>
+</body>
+</html>

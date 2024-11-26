@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legado de Heróis - Início</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header>
+        <div class="container1">
+            <div class="manage-buttons">
+                <!-- Botão para gerenciar HQs -->
+                <a href="/gerenciar" class="auth-button">
+                    <button>Gerenciar HQs</button>
+                </a>
+            </div>
+            <div class="card1">
+                <h1>Bem-vindo ao Legado de Heróis!</h1> 
+            </div>
+            <div class="auth-buttons">
+                <!-- Botão de perfil -->
+                <a href="/perfil" class="auth-button">
+                    <button>Perfil</button>
+                </a>
+                <!-- Botão de logout -->
+                <a href="index.html" class="auth-button">
+                    <button>Logout</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container1">
+            <div class="card2">
+                <h2>Suas HQs</h2>
+                <div id="hq-list" class="container-hqs">
+                    <!-- As HQs serão carregadas aqui dinamicamente -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Função para buscar as HQs e exibi-las na página
+        async function fetchHqs() {
+            try {
+                const response = await fetch('http://localhost:3000/listar-hqs'); // Faz a requisição para a rota que lista as HQs
+                if (!response.ok) throw new Error('Erro ao carregar as HQs');
+                const hqs = await response.json(); // Converte a resposta para JSON
+                const hqList = document.getElementById('hq-list');
+        
+                hqList.innerHTML = ''; // Limpa a lista atual de HQs
+        
+                // Percorre todas as HQs e cria os elementos para exibi-las
+                hqs.forEach(hq => {
+                    const hqItem = document.createElement('figure');
+                    hqItem.classList.add('hq-item');
+                    hqItem.innerHTML = `
+                        <img src="/images/${hq.imagem}" alt="${hq.nome}" class="hq-thumbnail">
+                        <figcaption>
+                            <h3>${hq.nome}</h3>
+                            <p>${hq.descricao}</p>
+                            <p>Média de Avaliação: ${hq.media_avaliacao ? parseFloat(hq.media_avaliacao).toFixed(1) : "Sem avaliações"} ⭐</p>
+
+                            <a href="/hq/${hq.id}" class="view-link">Ver mais</a> <!-- Link para a página da HQ -->
+                        </figcaption>
+                    `;
+                    hqList.appendChild(hqItem);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar HQs:', error);
+            }
+        }
+        
+        // Carrega as HQs ao iniciar a página
+        fetchHqs();
+        
+    </script>
+    
+</body>
+</html>

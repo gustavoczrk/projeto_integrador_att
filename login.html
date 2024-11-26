@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legado de Heróis</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container1">
+        <div class="card1">
+            <h1>
+                <a href="/" class="home-link"> Legado de Heróis</a>
+            </h1>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="card2">
+            <h2>Entrar</h2>
+
+            <div id="msgError"></div>
+
+            <form action="#" method="post">
+                <div class="label-float">
+                    <input type="text" id="usuario" name="usuario" placeholder="" required>
+                    <label for="usuario">Usuário</label>
+                </div>
+
+                <div class="label-float">
+                    <input type="password" id="senha" name="senha" placeholder="" required>
+                    <label for="senha">Senha</label>
+                </div>
+
+                <div class="justify-center">
+                    <button type="button" onclick="entrar()">Entrar</button>
+                </div>
+
+                <div class="justify-center">
+                    <hr>
+                </div>
+
+                <p>Não tem uma conta?
+                    <a href="/cadastro">Cadastre-se</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="/login.js"></script>
+</body>
+</html>

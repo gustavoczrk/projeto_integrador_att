@@ -1,0 +1,63 @@
+CREATE DATABASE legado_herois;
+USE legado_herois;
+
+CREATE TABLE hqs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    imagem VARCHAR(255),        -- Nome da imagem relacionada à HQ
+    pdf_path VARCHAR(255),      -- Caminho base onde os capítulos da HQ estão armazenados
+    data_adicao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE usuarios (
+  id int NOT NULL AUTO_INCREMENT,
+  nome varchar(100) NOT NULL,
+  email varchar(100) NOT NULL,
+  usuario varchar(50) NOT NULL,
+  senha varchar(255) NOT NULL,
+  PRIMARY KEY (id) 
+  );
+  
+  DROP TABLE hqs;
+  SELECT * FROM hqs;
+  
+  -- Insere a HQ Annihilation
+INSERT INTO hqs (nome, descricao, imagem, pdf_path) 
+VALUES ('Annihilation', 'Uma saga épica da Marvel.', 'Marvel-Anihilation.jpeg', 'Annihilation');
+
+-- Insere a HQ Civil War
+INSERT INTO hqs (nome, descricao, imagem, pdf_path) 
+VALUES ('Civil War', 'Conflito épico entre heróis.', 'Marvel-CivilWar.jpeg', 'CivilWar');
+
+-- Insere a HQ Dark Phoenix
+INSERT INTO hqs (nome, descricao, imagem, pdf_path) 
+VALUES ('DarkFenix', 'A história sombria da Fênix.', 'Marvel-Xmen-DarkPhoenix.jpeg', 'DarkFenix');
+
+-- Insere a HQ House of M
+INSERT INTO hqs (nome, descricao, imagem, pdf_path) 
+VALUES ('HouseofM', 'Realidade alterada pela Feiticeira Escarlate.', 'Marvel-House of M.jpeg', 'HouseofM');
+
+-- Insere a HQ Marvel vs DC
+INSERT INTO hqs (nome, descricao, imagem, pdf_path) 
+VALUES ('MarvelvsDC', 'O grande confronto entre dois universos.', 'MarvelvsDC.jpeg', 'MarvelvsDC');
+
+CREATE TABLE comentarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    hq_id INT,  -- ID da HQ associada ao comentário
+    usuario VARCHAR(255),
+    comentario TEXT,
+    data_comentario TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (hq_id) REFERENCES hqs(id)
+);
+SELECT * FROM usuarios;
+SELECT * FROM comentarios;
+SELECT * FROM hqs;
+SELECT id, nome, pdf_path FROM hqs;
+
+DESCRIBE hqs;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE hqs
+SET pdf_path = REPLACE(REPLACE(REPLACE(pdf_path, 'HQS\\', ''), 'HQS/', ''), '\\', '')
+WHERE pdf_path LIKE 'HQS\\%' OR pdf_path LIKE 'HQS/%';

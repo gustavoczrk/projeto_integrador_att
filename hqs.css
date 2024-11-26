@@ -1,0 +1,370 @@
+/* Importação da fonte Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Card com o título do site */
+.site-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card1 {
+    color: #0C2D34;
+    font-size: 36px;
+    background-color: #ffffff;
+    box-shadow: 6px 6px 2px 2px #000000;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card1:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.home-link {
+    text-decoration: none;
+    color: #0C2D34;
+}
+
+.home-link h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.home-link:hover h1 {
+    color: #ff0000; /* Muda a cor do título ao passar o mouse */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    position: relative;
+    overflow: auto; /* Garantir que a rolagem seja possível */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../Images/backgroundLegado.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    opacity: 0.5; /* Ajuste a opacidade conforme necessário */
+    z-index: -1; /* Coloca a camada atrás do conteúdo */
+    height: 100%; /* Garante que a camada cubra a altura inteira da página */
+}
+
+/* Container principal para o conteúdo da HQ */
+.container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* Estilo do cabeçalho com o título e descrição da HQ */
+.header-hq {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 6px 6px 2px 2px #000000;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Adiciona um fundo branco ao título */
+.header-hq h1 {
+    font-size: 36px;
+    color: #0C2D34;
+    margin-bottom: 10px;
+    background-color: #ffffff; /* Fundo branco */
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.header-hq p {
+    font-size: 18px;
+    color: #0C2D34;
+}
+
+/* Container da imagem da HQ para centralizar */
+.container2 {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    margin: 20px 0;
+}
+
+/* Estilo da imagem da HQ */
+.hq-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px 0px #000000;
+    margin-bottom: 20px;
+}
+
+/* Estilo da lista de capítulos */
+.capitulos-container {
+    background-color: #ffffff90; /* Fundo branco semitransparente */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    border: 2px solid #0C2D34; /* Borda em negrito */
+    font-weight: bold;
+}
+
+.capitulos {
+    list-style: none;
+    padding: 0;
+}
+
+.capitulos li {
+    margin: 10px 0;
+}
+
+.capitulos a {
+    text-decoration: none;
+    color: #0C2D34; /* Cor consistente com o tema */
+    font-weight: bold;
+}
+
+.capitulos a:hover {
+    color: #ff0000;
+    transition: color 0.3s ease;
+}
+
+h2 {
+    text-align: center;
+    color: #0C2D34;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center;
+    color: #0C2D34;
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 20px auto;
+    box-shadow: 3px 3px 2px 0px #000000;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+/* Estilo do formulário de comentários */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    border: 2px solid #0C2D34;
+    box-shadow: 3px 3px 2px 0px #000000;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #ffffff90; /* Fundo semi-transparente */
+}
+
+form input,
+form textarea {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px;
+    border: 2px solid #0C2D34;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    margin-bottom: 10px; /* Espaçamento entre os campos */
+}
+
+form button {
+    color: #0C2D34;
+    background-color: #ffffff90;
+    border: 2px solid #0C2D34;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+form button:hover {
+    background-color: #0C2D34;
+    color: #fff;
+}
+
+form,
+.comentarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilo dos comentários */
+.comentario {
+    background-color: #ffffff90;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    width: 80%;
+    max-width: 500px; /* Ajusta o tamanho máximo das caixas de comentários */
+    border: 2px solid #0C2D34; /* Borda em negrito */
+    font-weight: bold;
+}
+
+.comentario strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #0C2D34;
+}
+
+.comentario p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.comentario span {
+    font-size: 12px;
+    color: #666;
+    display: block;
+    text-align: right;
+}
+
+.btn-excluir-comentario {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 5px;
+    transition: background-color 0.3s;
+}
+
+
+.btn-excluir-comentario:hover {
+    background-color: #ff0000;
+}
+
+/* Estilo geral para a seção de avaliações */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+#media-avaliacao {
+    font-size: 24px;
+    color: #0C2D34;
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 20px auto;
+    box-shadow: 3px 3px 2px 0px #000000;
+    border-radius: 5px;
+    width: fit-content;
+    text-align: center;
+    display: inline-block;
+}
+
+#media-avaliacao:hover {
+    color: #ff0000;
+    transition: color 0.3s ease;
+}
+
+/* Título da seção de avaliação */
+h2.card-title {
+    font-size: 24px; /* Tamanho da fonte */
+    margin: 20px 0; /* Margem superior e inferior */
+    text-align: center; /* Centraliza o título */
+    color: #333; /* Cor do texto */
+}
+
+/* Média de avaliação */
+.media-avaliacao {
+    text-align: center;
+    font-size: 32px; /* Tamanho da fonte */
+    margin: 20px 0; /* Margem superior e inferior */
+    color: #701212; /* Cor do texto */
+
+}
+/* Estilo para o container da avaliação */
+.avaliacao-container {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos em coluna */
+    align-items: center; /* Centraliza os itens */
+    width: 80%; /* Largura máxima */
+    max-width: 800px; /* Largura máxima */
+    margin: 20px auto; /* Centraliza horizontalmente */
+}
+
+
+/* Formulário de avaliação */
+#form-avaliacao {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos em coluna */
+    align-items: center; /* Centraliza os itens */
+    margin: 20px 0; /* Margem acima e abaixo do formulário */
+    padding: 20px; /* Preenchimento interno do formulário */
+    border: 1px solid #ccc; /* Borda ao redor do formulário */
+    border-radius: 8px; /* Cantos arredondados */
+    background-color: #f9f9f9; /* Cor de fundo */
+    width: 100%; /* Largura total do contêiner */
+}
+
+/* Estilo dos campos de entrada */
+#form-avaliacao input[type="number"],
+#form-avaliacao select {
+    width: 80%; /* Largura do campo */
+    padding: 10px; /* Preenchimento interno */
+    margin: 10px 0; /* Margem superior e inferior */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 4px; /* Cantos arredondados */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Estilo do botão de avaliação */
+#form-avaliacao button {
+    padding: 10px 20px; /* Preenchimento interno */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Cantos arredondados */
+    cursor: pointer; /* Cursor de mão ao passar o mouse */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+#form-avaliacao button:hover {
+    background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
+
+/* Estilo para a média de avaliação */
+.media-avaliacao {
+    font-size: 20px; /* Tamanho da fonte */
+    margin-top: 20px; /* Margem superior */
+    text-align: center; /* Centraliza o texto */
+    color: #666; /* Cor do texto */
+}
+

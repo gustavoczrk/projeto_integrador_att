@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Cadastro</title>
+  <link rel="stylesheet" href="/css/perfil.css">
+</head>
+<body>
+    <header>
+        <div class="container1">
+          <a href="inicio.html" class="home-link">Legado de Heróis</a>
+        </div>
+      </header>
+  <div class="container1">
+    <div class="card2">
+      <h1>Informações do Usuário</h1>
+
+      <!-- Foto de Perfil com Controles de Ajuste -->
+      <div class="profile-pic" onclick="chooseFile()">
+        <div id="imageContainer" class="image-container">
+          <img id="profileImage" class="profile-img hidden" alt="Foto de Perfil">
+        </div>
+        <div id="placeholderText" class="placeholder-text">Altere sua foto de perfil aqui</div>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+      </div>
+
+      <!-- Controles de Ajuste -->
+      <div class="controls hidden" id="adjustControls">
+        <label>Zoom:</label>
+        <input type="range" id="zoomRange" min="1" max="3" step="0.1" value="1">
+        <button onclick="saveImage()">Salvar Imagem</button>
+      </div>
+
+      <!-- Formulário de Edição de Dados -->
+      <form id="userForm">
+        <div class="label-float">
+          <input type="text" id="name" value="Nome do Usuário" required>
+          <label for="name">Nome</label>
+        </div>
+        
+        <div class="label-float">
+          <input type="text" id="nickname" value="Nickname" required>
+          <label for="nickname">Nickname</label>
+        </div>
+
+        <div class="label-float">
+          <textarea id="description" rows="4">Descrição do usuário</textarea>
+          <label for="description">Descrição</label>
+        </div>
+        
+        <button type="button" id="saveButton">Salvar Alterações</button>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="perfil.js"></script>
+</body>
+</html>
